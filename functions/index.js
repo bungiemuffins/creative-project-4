@@ -7,7 +7,8 @@ const firebaseApp = firebase.initializeApp(
 );
 
 const app = express();
-app.use(express.static('public'));
+//app.use("/public", express.static(__dirname + '/public'));
+//app.use('/static', express.static('/public'))
 
 var db = firebase.firestore();
 var itemsRef = db.collection('items');
