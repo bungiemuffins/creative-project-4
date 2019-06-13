@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+  <title>Reasons You Should Date Me</title>
+</head>
+
+<body>
+     <!-- Navbar (sit on top) -->
+<div class="w3-top">
+        <div class="w3-bar" id="myNavbar">
+          <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+            <i class="fa fa-bars"></i>
+          </a>
+          <a href="index.html" class="w3-bar-item w3-button">HOME</a>
+          <a href="add.html" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> SETTINGS</a>
+        </div>
+      
+        <!-- Navbar on small screens -->
+        <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+          <a href="add.html" class="w3-bar-item w3-button" onclick="toggleFunction()">SETTINGS</a>
+        </div>
+      </div>
+    
+    <div class="w3-content w3-container w3-padding-64">
+        <div id="add">
+            <h3 class="w3-center">ADD REASONS</h3>
+            <div class="form">
+                <input v-model="comment" class="w3-input w3-border" type="text" placeholder="Reason">
+                <button @click="addNewItem" class="w3-button w3-black w3-right w3-section">
+                    <i class="fa fa-plus"></i> ADD ITEM
+                </button>
+            </div>
+            <div class="upload" v-if="addItem">
+                    <p class="w3-center"><em>You've successfully become more dateable!</em></p>
+            </div>
+            <br>
+            <h3 class="w3-center">EDIT REASONS</h3>
+            <div v-for="item in items">
+                <p class="w3-center">{{item.comment}}</p>
+                <input v-model="newComment" class="w3-input w3-border" type="text" placeholder="Type to Edit">
+                <button @click="deleteItem(item)" class="w3-button w3-black w3-right w3-section">DELETE</button>
+                <button @click="editItem(item)" class="w3-button w3-black w3-right w3-section">EDIT</button>
+            </div>  
+        </div>  
+    </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.7/vue.js" integrity="sha256-g+Q8DFAmG5+eyRPSydX0LY4TfjsL11XSDrIGerbbEdA=" crossorigin="anonymous"></script>
+  <script src="/add.js"></script>
+</body>
+
+</html>
